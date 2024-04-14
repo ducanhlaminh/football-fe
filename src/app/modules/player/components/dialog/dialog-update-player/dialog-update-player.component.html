@@ -1,0 +1,58 @@
+<h2 mat-dialog-title><h2>Update cầu thủ :</h2></h2>
+<mat-dialog-content>
+  <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="playerName">Player Name:</label>
+      <input
+        type="text"
+        id="playerName"
+        formControlName="playerName"
+        required
+      />
+    </div>
+    <div>
+      <label for="nationality">Nationality:</label>
+      <input
+        type="text"
+        id="nationality"
+        formControlName="nationality"
+        required
+      />
+    </div>
+    <div>
+      <label for="position">Position:</label>
+      <input type="text" id="position" formControlName="position" required />
+    </div>
+
+    <div>
+      <label for="team_id">Team:</label>
+      <select id="team_id" formControlName="team_id" required>
+        <option value="">Select Team</option>
+        <option *ngFor="let team of teams" [value]="team.teamId">
+          {{ team.teamName }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label for="date_of_birth">Date of Birth:</label>
+      <input
+        type="date"
+        id="date_of_birth"
+        formControlName="date_of_birth"
+        required
+      />
+    </div>
+    <br />
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    mat-button
+    mat-dialog-close
+    cdkFocusInitial
+    class="btn-create"
+    (click)="onSubmit()"
+  >
+    Update
+  </button>
+</mat-dialog-actions>

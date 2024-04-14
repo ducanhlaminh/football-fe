@@ -1,0 +1,39 @@
+<h2 mat-dialog-title><h2>Update Giải Đấu :</h2></h2>
+<mat-dialog-content>
+  <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="tournament_name">Tên giải đấu:</label>
+      <input
+        type="text"
+        id="tournament_name"
+        formControlName="tournament_name"
+        required
+      />
+    </div>
+    <div>
+      <label for="start_date">Ngày bắt đầu:</label>
+      <input
+        type="date"
+        id="start_date"
+        formControlName="start_date"
+        required
+      />
+    </div>
+    <div>
+      <label for="end_date">Ngày kết thúc:</label>
+      <input type="date" id="end_date" formControlName="end_date" required />
+    </div>
+    <br />
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    mat-button
+    mat-dialog-close
+    cdkFocusInitial
+    class="btn-create"
+    (click)="onSubmit()"
+  >
+    Cập nhật
+  </button>
+</mat-dialog-actions>

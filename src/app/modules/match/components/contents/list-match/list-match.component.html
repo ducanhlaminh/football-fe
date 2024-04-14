@@ -1,0 +1,87 @@
+<div class="title">
+  <h2>Tất cả các trận đấu :</h2>
+</div>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="country">Giải:</label>
+    <select id="country" formControlName="tournamentId">
+      <option value="">Không</option>
+      <option *ngFor="let item of tournaments" [value]="item.tournamentId">
+        {{ item.tournamentName }}
+      </option>
+    </select>
+  </div>
+  <br />
+  <button type="submit" class="btn-create">Tìm</button>
+</form>
+<div class="container-content">
+  <table>
+    <tr>
+      <th class="select-all">
+        <span>ID</span>
+      </th>
+      <th>
+        <div class="header-name">
+          <span>Đội nhà</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-view">
+          <span>Đội khách</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-cate">
+          <span>Sân vận động</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-cate">
+          <span>Ngày đá</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-view"></div>
+      </th>
+      <th></th>
+    </tr>
+    <ng-container *ngFor="let item of players; let i = index">
+      <tr class="" [ngClass]="{ selected: item.opened }">
+        <td class="item-stt">{{ item.matchId }}</td>
+        <td class="item-name">
+          <ng-container *ngFor="let team of item.match_teams">
+            <div class="title-status" *ngIf="team.type === 'Home'">
+              <p>{{ team?.team.teamName }}</p>
+            </div>
+          </ng-container>
+        </td>
+        <td class="item-name">
+          <ng-container *ngFor="let team of item.match_teams">
+            <div class="title-status" *ngIf="team.type === 'Away'">
+              <p>{{ team?.team.teamName }}</p>
+            </div>
+          </ng-container>
+        </td>
+        <td class="item-cate">
+          <p>{{ item?.stadium }}</p>
+        </td>
+        <td class="item-view">
+          <span>{{ item?.matchDate | date }}</span>
+        </td>
+        <td class="item-view"></td>
+        <td class="item-view">
+          <div class="">
+            <fa-icon
+              [icon]="faPenToSquare"
+              (click)="openDialog(item)"
+            ></fa-icon>
+            <fa-icon
+              [icon]="faTrash"
+              (click)="onDelete(item.playerId)"
+            ></fa-icon>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+</div>

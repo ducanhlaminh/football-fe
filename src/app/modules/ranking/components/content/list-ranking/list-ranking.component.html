@@ -1,0 +1,88 @@
+<div class="title">
+  <h2>Tất cả các Nhà tài trợ :</h2>
+</div>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="country">Giải đấu:</label>
+    <select id="country" formControlName="tournaments">
+      <option value="">Không</option>
+      <!-- <option *ngFor="let country of countries" [value]="country.value">
+        {{ country.name }}
+      </option> -->
+    </select>
+  </div>
+  <br />
+  <button type="submit" class="btn-create">Tìm</button>
+</form>
+<div class="container-content">
+  <table>
+    <tr>
+      <th class="select-all">
+        <span>ID</span>
+      </th>
+      <th>
+        <div class="header-name">
+          <span>Tên nhà tài trợ</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-view">
+          <span>Đội</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-cate">
+          <span>Số tiền</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-cate">
+          <span>Ngày bắt đầu</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-view"></div>
+        <span>Ngày kết thúc</span>
+      </th>
+      <th></th>
+    </tr>
+    <ng-container *ngFor="let sponsor of teams; let i = index">
+      <ng-container *ngFor="let item of sponsor.sponsorship">
+        <tr class="" [ngClass]="{ selected: sponsor.opened }">
+          <td class="item-stt">{{ sponsor.sponsorId }}</td>
+          <td class="item-name">
+            <div class="title-status">
+              <p>{{ sponsor?.sponsorName }}</p>
+            </div>
+          </td>
+          <td class="item-cate">
+            <p>{{ item?.teamInfor?.teamName }}</p>
+          </td>
+          <td class="item-cate">
+            <p>{{ item?.sponsorshipAmount }}</p>
+          </td>
+          <td class="item-view">
+            <div>
+              <b>{{ item?.startDate | date }}</b>
+            </div>
+          </td>
+          <td class="item-view">
+            <b>{{ item?.endDate | date }}</b>
+            <!-- <span>{{ item?.coach?.coachName }}</span>
+          <ng-container *ngIf="!item.coach">
+            <b>Chưa đăng ký</b>
+          </ng-container> -->
+          </td>
+          <td class="item-view">
+            <!-- <div class="">
+              <fa-icon
+                [icon]="faTrash"
+                (click)="onDelete(sponsor.sponsorId, item.sponsorshipId)"
+              ></fa-icon>
+            </div> -->
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+  </table>
+</div>

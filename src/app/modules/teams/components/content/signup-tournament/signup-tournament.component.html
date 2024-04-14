@@ -1,0 +1,29 @@
+<div class="title">
+  <h2>Đăng ký vào giải đấu :</h2>
+</div>
+<form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="country">Team:</label>
+    <select id="country" formControlName="team_id">
+      <option value="">Không</option>
+      <option *ngFor="let item of teams" [value]="item.teamId">
+        {{ item.teamName }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="country">Tournament:</label>
+    <select id="country" formControlName="tournament_id">
+      <option value="">Không</option>
+      <option
+        *ngFor="let tournament of tournaments"
+        [value]="tournament.tournamentId"
+      >
+        {{ tournament.tournamentName }}
+      </option>
+    </select>
+  </div>
+
+  <br />
+  <button type="submit" class="btn-create">Tạo đội bóng</button>
+</form>

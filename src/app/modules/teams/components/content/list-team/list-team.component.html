@@ -1,0 +1,103 @@
+<div class="title">
+  <h2>Tất cả các đội bóng :</h2>
+</div>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <div>
+    <div>
+      <label for="teamName">Team Name:</label>
+      <input
+        id="teamName"
+        type="text"
+        name=""
+        value=""
+        formControlName="teamName"
+        placeholder="Nhập tên đội bóng"
+      />
+    </div>
+    <label for="country">Country:</label>
+    <select id="country" formControlName="country">
+      <option value="">Không</option>
+      <option *ngFor="let country of countries" [value]="country.value">
+        {{ country.name }}
+      </option>
+    </select>
+  </div>
+  <br />
+  <button type="submit" class="btn-create">Tìm</button>
+</form>
+<div class="container-content">
+  <table>
+    <tr>
+      <th class="select-all">
+        <span>ID</span>
+      </th>
+      <th>
+        <div class="header-name">
+          <span>Tên đội bóng</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-view">
+          <span>Quốc gia</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-cate">
+          <span>Số lượng cầu thủ</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-cate">
+          <span>HLV</span>
+        </div>
+      </th>
+      <th>
+        <div class="header-view">
+          <span>Giải đấu</span>
+        </div>
+      </th>
+      <th></th>
+    </tr>
+    <ng-container *ngFor="let item of teams; let i = index">
+      <tr class="" [ngClass]="{ selected: item.opened }">
+        <td class="item-stt">{{ item.teamId }}</td>
+        <td class="item-name">
+          <div class="title-status">
+            <p>{{ item?.teamName }}</p>
+          </div>
+        </td>
+        <td class="item-cate">
+          <p>{{ item?.country }}</p>
+        </td>
+        <td class="item-cate">
+          <p>{{ item?.players?.length }}</p>
+        </td>
+        <td class="item-view">
+          <span>{{ item?.coach?.coachName }}</span>
+          <ng-container *ngIf="!item.coach">
+            <b>Chưa đăng ký</b>
+          </ng-container>
+        </td>
+        <td class="item-view">
+          <ng-container *ngFor="let item of item.tournamentTeam">
+            <div>
+              <b>{{ item?.tournament?.tournamentName }}</b>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="item.tournamentTeam.length === 0">
+            <b>Chưa đăng ký</b>
+          </ng-container>
+        </td>
+        <td class="item-view">
+          <div class="">
+            <fa-icon
+              [icon]="faPenToSquare"
+              (click)="openDialog(item)"
+            ></fa-icon>
+            <fa-icon [icon]="faTrash" (click)="onDelete(item.teamId)"></fa-icon>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+</div>

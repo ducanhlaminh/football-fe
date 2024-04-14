@@ -1,0 +1,59 @@
+<div class="title">
+  <h2>Tạo tran dau:</h2>
+</div>
+<form [formGroup]="matchForm" (submit)="createMatch()">
+  <div>
+    <label for="team_id">Giai:</label>
+    <select id="team_id" formControlName="tournament_id" required>
+      <option value="">Select Team</option>
+      <option *ngFor="let team of tournaments" [value]="team.tournamentId">
+        {{ team.tournamentName }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="start_date">San van dong</label>
+    <input type="text" id="start_date" formControlName="stadium" required />
+  </div>
+  <div>
+    <label for="team_id">Ket qua:</label>
+    <select id="team_id" formControlName="team_id" required>
+      <option value="">Select Team</option>
+      <option *ngFor="let team of teams" [value]="team.teamId">
+        {{ team.teamName }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="start_date">Ngày da:</label>
+    <input type="date" id="start_date" formControlName="matchDate" required />
+  </div>
+  <button type="submit" class="btn-create">Tạo tran</button>
+</form>
+
+<form [formGroup]="homeForm" (submit)="createHome()">
+  <div>
+    <label for="team_id">Team:</label>
+    <select id="team_id" formControlName="team_team_id" required>
+      <option value="">Select Team</option>
+      <option *ngFor="let team of teams" [value]="team.teamId">
+        {{ team.teamName }}
+      </option>
+    </select>
+  </div>
+  <button type="submit" class="btn-create">dang ky doi</button>
+</form>
+
+<form [formGroup]="awayHome" (submit)="createAway()">
+  <div>
+    <label for="team_id">Team:</label>
+    <select id="team_id" formControlName="team_team_id" required>
+      <option value="">Select Team</option>
+      <option *ngFor="let team of teams" [value]="team.teamId">
+        {{ team.teamName }}
+      </option>
+    </select>
+  </div>
+  <br />
+  <button type="submit" class="btn-create">dang ky doi</button>
+</form>

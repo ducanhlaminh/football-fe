@@ -1,0 +1,24 @@
+<div class="title">
+  <h2>Tạo giải đấu mới:</h2>
+</div>
+<form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="tournament_name">Tên giải đấu:</label>
+    <input
+      type="text"
+      id="tournament_name"
+      formControlName="tournamentName"
+      required
+    />
+  </div>
+  <div>
+    <label for="start_date">Ngày bắt đầu:</label>
+    <input type="date" id="start_date" formControlName="startDate" required />
+  </div>
+  <div>
+    <label for="end_date">Ngày kết thúc:</label>
+    <input type="date" id="end_date" formControlName="endDate" required />
+  </div>
+  <br />
+  <button type="submit" class="btn-create">Tạo đội bóng</button>
+</form>

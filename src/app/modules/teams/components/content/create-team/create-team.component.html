@@ -1,0 +1,21 @@
+<div class="title">
+  <h2>Tạo đội bóng :</h2>
+</div>
+<form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="teamName">Team Name:</label>
+    <input type="text" id="teamName" formControlName="teamName" required />
+  </div>
+  <div>
+    <label for="country">Country:</label>
+    <select id="country" formControlName="country">
+      <option value="">Không</option>
+      <option *ngFor="let country of countries" [value]="country.value">
+        {{ country.name }}
+      </option>
+    </select>
+  </div>
+
+  <br />
+  <button type="submit" class="btn-create">Tạo đội bóng</button>
+</form>

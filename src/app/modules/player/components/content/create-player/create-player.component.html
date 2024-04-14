@@ -1,0 +1,43 @@
+<div class="title">
+  <h2>Tạo cầu thủ mới :</h2>
+</div>
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="playerName">Player Name:</label>
+    <input type="text" id="playerName" formControlName="playerName" required />
+  </div>
+  <div>
+    <label for="nationality">Nationality:</label>
+    <input
+      type="text"
+      id="nationality"
+      formControlName="nationality"
+      required
+    />
+  </div>
+  <div>
+    <label for="position">Position:</label>
+    <input type="text" id="position" formControlName="position" required />
+  </div>
+
+  <div>
+    <label for="team_id">Team:</label>
+    <select id="team_id" formControlName="team_id" required>
+      <option value="">Select Team</option>
+      <option *ngFor="let team of teams" [value]="team.teamId">
+        {{ team.teamName }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="date_of_birth">Date of Birth:</label>
+    <input
+      type="date"
+      id="date_of_birth"
+      formControlName="dateOfBirth"
+      required
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn-create">Tạo cầu thủ</button>
+</form>

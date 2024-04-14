@@ -1,0 +1,25 @@
+<h2 mat-dialog-title><h2>Update đội bóng :</h2></h2>
+<mat-dialog-content>
+  <form [formGroup]="teamForm">
+    <div>
+      <label for="country">Country:</label>
+      <input type="text" id="country" formControlName="country" required />
+    </div>
+    <div>
+      <label for="teamName">Team Name:</label>
+      <input type="text" id="teamName" formControlName="teamName" required />
+    </div>
+    <br />
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button
+    mat-button
+    mat-dialog-close
+    cdkFocusInitial
+    class="btn-create"
+    (click)="onSubmit()"
+  >
+    Update
+  </button>
+</mat-dialog-actions>

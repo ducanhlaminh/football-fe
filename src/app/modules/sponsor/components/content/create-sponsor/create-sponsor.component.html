@@ -1,0 +1,48 @@
+<div class="title">
+  <h2>Tạo tài trợ mới :</h2>
+</div>
+<form [formGroup]="sponsorForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="playerName">Player Name:</label>
+    <select id="team_id" formControlName="sponsorId" required>
+      <option value="">Select Team</option>
+      <option *ngFor="let item of sponsors" [value]="item.sponsorId">
+        {{ item.sponsorName }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="playerName">Player Name:</label>
+    <select id="team_id" formControlName="teamId" required>
+      <option value="">Select Team</option>
+      <option *ngFor="let item of teams" [value]="item.teamId">
+        {{ item.teamName }}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label for="nationality">Nationality:</label>
+    <input
+      type="number"
+      id="nationality"
+      formControlName="sponsorshipAmount"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="date_of_birth">Date of Birth:</label>
+    <input
+      type="date"
+      id="date_of_birth"
+      formControlName="startDate"
+      required
+    />
+  </div>
+  <div>
+    <label for="date_of_birth">Date of Birth:</label>
+    <input type="date" id="date_of_birth" formControlName="endDate" required />
+  </div>
+  <br />
+  <button type="submit" class="btn-create">Tạo cầu thủ</button>
+</form>

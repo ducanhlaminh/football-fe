@@ -1,0 +1,57 @@
+<div class="header">
+  <div [ngClass]="!showSidebar ? 'logo-hidden' : 'logo'">
+    <img src="assets/logo-text-light.svg" alt="" />
+  </div>
+  <div class="content-header">
+    <div class="btn"></div>
+    <div class="profile">
+      <div class="username">
+        <b>{{ this.username }}</b>
+      </div>
+      <div class="role">
+        {{ this.role }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="navSide" *ngIf="true">
+    <div class="container-item">
+      <ng-container *ngFor="let item of navItem">
+        <div class="item" (mouseenter)="hover(item)" [routerLink]="item.url">
+          <img [src]="item.icon" routerLinkActive="selected" />
+          <span class="lable">{{ item.title }}</span>
+        </div>
+        <div
+          class="container_bottom_item"
+          routerLinkActive="active_subItem_bottom"
+          *ngIf="item.sub"
+        >
+          <span
+            class="side-active"
+            [ngClass]="{
+              position_2: selectedIndex === 2,
+              position_3: selectedIndex === 3
+            }"
+          ></span>
+          <div *ngFor="let itemSub of item.sub; index as i">
+            <div
+              class="itemSub"
+              [routerLink]="itemSub.url"
+              routerLinkActive="active"
+            >
+              <div class="lable-sub">
+                {{ itemSub.title }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="content">
+    <div class="outlet">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
