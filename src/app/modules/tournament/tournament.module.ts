@@ -8,6 +8,7 @@ import { UpdateTournamentComponent } from './components/content/update-tournamen
 import { MatDialogModule } from '@angular/material/dialog';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DialogUpdateTournamentComponent } from './components/dialog/dialog-update-tournament/dialog-update-tournament.component';
+import { ListTournamentTeamComponent } from './components/content/list-tournament-team/list-tournament-team.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DialogUpdateTournamentComponent } from './components/dialog/dialog-upda
     CreateTournamentComponent,
     UpdateTournamentComponent,
     DialogUpdateTournamentComponent,
+    ListTournamentTeamComponent,
   ],
   imports: [
     CommonModule,

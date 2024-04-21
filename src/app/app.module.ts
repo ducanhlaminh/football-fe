@@ -15,6 +15,8 @@ import { PlayerModule } from './modules/player/player.module';
 import { TournamentModule } from './modules/tournament/tournament.module';
 import { SponsorModule } from './modules/sponsor/sponsor.module';
 import { MatchModule } from './modules/match/match.module';
+import { CoachModule } from './modules/coach/coach.module';
+import { RankingModule } from './modules/ranking/ranking.module';
 @NgModule({
   declarations: [AppComponent, ToastrComponent],
   imports: [
@@ -30,6 +32,8 @@ import { MatchModule } from './modules/match/match.module';
     TeamsModule,
     TournamentModule,
     MatchModule,
+    CoachModule,
+    RankingModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       timeOut: 5000,

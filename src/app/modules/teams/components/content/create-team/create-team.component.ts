@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { CoachModule } from 'src/app/modules/coach/coach.module';
+import { CoachService } from 'src/app/modules/coach/coach.service';
 import { TeamService } from '../../../team.service';
 import { DialogUpdateTeamComponent } from '../../dialog/dialog-update-team/dialog-update-team.component';
 interface Country {
@@ -14,10 +16,11 @@ interface Country {
 })
 export class CreateTeamComponent {
   teamForm: FormGroup;
-
+  coaches: any;
   constructor(
     private formBuilder: FormBuilder,
-    private teamService: TeamService
+    private teamService: TeamService,
+    private coachService: CoachService
   ) {}
   countries: Country[] = [
     { name: 'Anh', value: 'brazil' },
@@ -31,7 +34,11 @@ export class CreateTeamComponent {
     this.teamForm = this.formBuilder.group({
       country: ['', Validators.required],
       teamName: ['', Validators.required],
+      coachId: ['', Validators.required],
     });
+    this.coachService
+      .getMatch()
+      .subscribe((coaches: any) => (this.coaches = coaches.result));
   }
 
   onSubmit() {

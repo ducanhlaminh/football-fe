@@ -1,5 +1,5 @@
 <div class="title">
-  <h2>Tất cả các đội bóng :</h2>
+  <h2>Tất cả các huấn luyện viên :</h2>
 </div>
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <div>
@@ -10,7 +10,7 @@
         type="text"
         name=""
         value=""
-        formControlName="teamName"
+        formControlName="coachName"
         placeholder="Nhập tên đội bóng"
       />
     </div>
@@ -33,60 +33,46 @@
       </th>
       <th>
         <div class="header-name">
-          <span>Tên đội bóng</span>
-        </div>
-      </th>
-      <th>
-        <div class="header-view">
-          <span>Quốc gia</span>
+          <span>Tên HLV</span>
         </div>
       </th>
       <th>
         <div class="header-cate">
-          <span>Số lượng cầu thủ</span>
+          <span>Quốc Gia</span>
         </div>
       </th>
       <th>
         <div class="header-cate">
-          <span>HLV</span>
+          <span>Ngày sinh</span>
         </div>
       </th>
       <th>
-        <div class="header-view">
-          <span>Giải đấu</span>
+        <div class="header-cate">
+          <span>Năm kinh nghiẹm</span>
         </div>
+      </th>
+      <th>
+        <div class="header-view"><span>Dội bóng</span></div>
       </th>
       <th></th>
     </tr>
-    <ng-container *ngFor="let item of teams; let i = index">
+    <ng-container *ngFor="let item of coaches; let i = index">
       <tr class="" [ngClass]="{ selected: item.opened }">
-        <td class="item-stt">{{ item.teamId }}</td>
+        <td class="item-stt">{{ item.coachId }}</td>
         <td class="item-name">
-          <div class="title-status">
-            <p>{{ item?.teamName }}</p>
-          </div>
+          <p>{{ item?.coachName }}</p>
         </td>
-        <td class="item-cate">
+        <td class="item-name">
           <p>{{ item?.country }}</p>
         </td>
         <td class="item-cate">
-          <p>{{ item?.numberOfPlayers }}</p>
+          <p>{{ item?.dateOfBirth | date }}</p>
         </td>
         <td class="item-view">
-          <span>{{ item?.coach?.coachName }}</span>
-          <ng-container *ngIf="!item.coach">
-            <b>Chưa đăng ký</b>
-          </ng-container>
+          <span>{{ item?.yearsOfExperience }}</span>
         </td>
         <td class="item-view">
-          <ng-container *ngFor="let tournament of item.tournament">
-            <div>
-              <b>{{ tournament.tournamentName }}</b>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="item.tournament.length === 0">
-            <b>Chưa đăng ký</b>
-          </ng-container>
+          <span>{{ item?.teamName }}</span>
         </td>
         <td class="item-view">
           <div class="">
@@ -94,7 +80,10 @@
               [icon]="faPenToSquare"
               (click)="openDialog(item)"
             ></fa-icon>
-            <fa-icon [icon]="faTrash" (click)="onDelete(item.teamId)"></fa-icon>
+            <fa-icon
+              [icon]="faTrash"
+              (click)="onDelete(item.coachId)"
+            ></fa-icon>
           </div>
         </td>
       </tr>

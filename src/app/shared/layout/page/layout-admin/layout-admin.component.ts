@@ -64,12 +64,30 @@ export class LayoutAdminComponent implements OnInit {
       ],
     },
     {
+      title: 'Huấn luyện viên',
+      icon: 'assets/icon/article-svgrepo-com.svg',
+      sub: [
+        {
+          title: 'Tất cả huấn luyện viên',
+          url: 'coach-list',
+        },
+        {
+          title: 'Thêm huấn luyện viên',
+          url: 'coach-create',
+        },
+      ],
+    },
+    {
       title: 'Giải dấu',
       icon: 'assets/icon/layout-grid-1-svgrepo-com.svg',
       sub: [
         {
           title: 'Danh sách giải đấu',
           url: 'tournament-list',
+        },
+        {
+          title: 'Danh sách đội bóng trong giải',
+          url: 'tournament-teams-list',
         },
         {
           title: 'Tạo giải đấu',
@@ -113,6 +131,12 @@ export class LayoutAdminComponent implements OnInit {
       title: 'Ranking',
       icon: 'assets/icon/users-svgrepo-com.svg',
       url: 'ranking',
+      sub: [
+        {
+          title: 'Bảng xếp hạng',
+          url: 'ranking-list',
+        },
+      ],
     },
   ];
   hover(itemSelect: any) {

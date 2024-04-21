@@ -15,6 +15,15 @@
       </option>
     </select>
   </div>
+  <div>
+    <label for="country">Coach:</label>
+    <select id="country" formControlName="coachId">
+      <option value="">Không</option>
+      <option *ngFor="let coach of coaches" [value]="coach.coachId">
+        {{ coach.coachName }}
+      </option>
+    </select>
+  </div>
 
   <br />
   <button type="submit" class="btn-create">Tạo đội bóng</button>

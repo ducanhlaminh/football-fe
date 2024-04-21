@@ -10,6 +10,8 @@ export const environment = {
   API_MATCH: 'http://localhost:8888/matches',
   API_CREATE_MATCH: 'http://localhost:8888/matches',
   API_HOME_AWAY: 'http://localhost:8888/match_teams',
+  API_COACH: 'http://localhost:8888/coaches',
+  API_TOURNAMENT_TEAM: 'http://localhost:8888/tournament-teams',
 };
 export const configRole = [
   {

@@ -29,4 +29,12 @@ export class TournamentService {
   deleteTeam(id: number) {
     return this.http.delete(environment.API_TOURNAMENT + '/' + id);
   }
+  getTournamentTeams(id: number) {
+    return this.http.get(environment.API_TOURNAMENT_TEAM + '/' + id);
+  }
+  deleteTournamentTeams(tournamentId: number, id: number) {
+    return this.http.delete(
+      environment.API_TOURNAMENT_TEAM + '/' + tournamentId + '/' + id
+    );
+  }
 }

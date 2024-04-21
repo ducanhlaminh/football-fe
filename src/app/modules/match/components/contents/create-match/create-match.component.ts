@@ -27,16 +27,9 @@ export class CreateMatchComponent {
       stadium: ['', Validators.required],
       matchDate: ['', Validators.required],
       tournament_id: ['', Validators.required],
-    });
-    this.homeForm = this.formBuilder.group({
-      type: ['Home', Validators.required],
-      match_match_id: ['', Validators.required],
-      team_team_id: ['', Validators.required],
-    });
-    this.awayHome = this.formBuilder.group({
-      type: ['Away', Validators.required],
-      match_match_id: ['', Validators.required],
-      team_team_id: ['', Validators.required],
+      teamIdWin: ['', Validators.required],
+      homeTeam: ['', Validators.required],
+      awayTeam: ['', Validators.required],
     });
     this.teamService
       .getTeam()
