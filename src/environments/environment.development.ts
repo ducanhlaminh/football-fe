@@ -1,41 +1,42 @@
 export const environment = {
-  API_LOGIN: 'http://localhost:8888/login',
-  API_SIGN_SPONSOR: 'http://localhost:8888/sign-up/sponsor',
-  API_SIGN_BTV: 'http://localhost:8888/sign-up/btv',
-  APT_TEAMS: 'http://localhost:8888/teams',
-  API_PLAYER: 'http://localhost:8888/players',
-  API_TOURNAMENT: 'http://localhost:8888/tournaments',
-  API_SPONSOR: 'http://localhost:8888/sponsors',
-  API_SIGN_UP_TEAM_TOURNAMENTL: 'http://localhost:8888/teams-tournament',
-  API_MATCH: 'http://localhost:8888/matches',
-  API_CREATE_MATCH: 'http://localhost:8888/matches',
-  API_HOME_AWAY: 'http://localhost:8888/match_teams',
-  API_COACH: 'http://localhost:8888/coaches',
-  API_TOURNAMENT_TEAM: 'http://localhost:8888/tournament-teams',
+    API_LOGIN: "http://localhost:8888/login",
+    API_SIGN_SPONSOR: "http://localhost:8888/sign-up/sponsor",
+    API_SIGN_BTV: "http://localhost:8888/sign-up/btv",
+    APT_TEAMS: "http://localhost:8888/teams",
+    API_PLAYER: "http://localhost:8888/players",
+    API_TOURNAMENT: "http://localhost:8888/tournaments",
+    API_SPONSOR: "http://localhost:8888/sponsors",
+    API_SIGN_UP_TEAM_TOURNAMENTL: "http://localhost:8888/teams-tournament",
+    API_MATCH: "http://localhost:8888/matches",
+    API_CREATE_MATCH: "http://localhost:8888/matches",
+    API_HOME_AWAY: "http://localhost:8888/match_teams",
+    API_COACH: "http://localhost:8888/coaches",
+    API_SPOPNSORSHIP: "http://localhost:8888/sponsorships",
+    API_TOURNAMENT_TEAM: "http://localhost:8888/tournament-teams",
 };
 export const configRole = [
-  {
-    name: 'Superadmin',
-    role_id: 1,
-    coloumns: {
-      title: true,
-      author: true,
-      category: true,
-      date: true,
-      views: true,
+    {
+        name: "Superadmin",
+        role_id: 1,
+        coloumns: {
+            title: true,
+            author: true,
+            category: true,
+            date: true,
+            views: true,
+        },
     },
-  },
-  {
-    name: 'Editor',
-    role_id: 2,
-    coloumns: {
-      title: true,
-      author: false,
-      category: true,
-      date: true,
-      views: true,
+    {
+        name: "Editor",
+        role_id: 2,
+        coloumns: {
+            title: true,
+            author: false,
+            category: true,
+            date: true,
+            views: true,
+        },
     },
-  },
 ];
 // <!-- <table
 //       style="

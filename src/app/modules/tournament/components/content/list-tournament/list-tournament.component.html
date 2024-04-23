@@ -68,9 +68,7 @@
                     <p>{{ item?.endDate | date }}</p>
                 </td>
                 <td class="item-view">
-                    <ng-container *ngFor="let team of item?.tournamentTeam">
-                        <span>{{ team.teams.teamName }}</span>
-                    </ng-container>
+                    <p>{{ item.numOfTeam }}</p>
                 </td>
 
                 <td class="item-view">

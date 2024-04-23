@@ -1,33 +1,30 @@
 <div class="title">
-  <h2>Tạo huấn luyệ viên mới :</h2>
+    <h2>Tạo huấn luyệ viên mới :</h2>
 </div>
 <form [formGroup]="coachForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="coachName">Họ và tên:</label>
-    <input type="text" id="coachName" formControlName="coachName" required />
-  </div>
-  <div>
-    <label for="country">Quốc Gia</label>
-    <select id="country" formControlName="country" required>
-      <option value="">Select Team</option>
-      <option *ngFor="let item of countries" [value]="item.value">
-        {{ item.name }}
-      </option>
-    </select>
-  </div>
-  <div>
-    <label for="date">Ngày sinh:</label>
-    <input type="date" id="date" formControlName="dateOfBirth" required />
-  </div>
-  <div>
-    <label for="date_of_birth">Date of Birth:</label>
-    <select id="team_id" formControlName="teamId" required>
-      <option value="">Select Team</option>
-      <option *ngFor="let item of teams" [value]="item.teamId">
-        {{ item.teamName }}
-      </option>
-    </select>
-  </div>
-  <br />
-  <button type="submit" class="btn-create">Tạo cầu thủ</button>
+    <div>
+        <label for="coachName">Họ và tên:</label>
+        <input
+            type="text"
+            id="coachName"
+            formControlName="coachName"
+            required
+        />
+    </div>
+    <div>
+        <label for="country">Quốc Gia</label>
+        <select id="country" formControlName="country" required>
+            <option value="">Select Team</option>
+            <option *ngFor="let item of countries" [value]="item.value">
+                {{ item.name }}
+            </option>
+        </select>
+    </div>
+    <div>
+        <label for="date">Ngày sinh:</label>
+        <input type="date" id="date" formControlName="dateOfBirth" required />
+    </div>
+
+    <br />
+    <button type="submit" class="btn-create">Tạo cầu thủ</button>
 </form>
